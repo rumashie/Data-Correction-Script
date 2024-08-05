@@ -2,7 +2,7 @@
 
 **Instructions to run:**
 
-Assuming you have Git and Python installed, these instructions should work on Windows Command Prompt.
+Assuming you have Git and Python installed, these instructions should work on *Windows Command Prompt*.
 
 1. **Clone the Repository:**
    - Navigate to the directory where you want to keep the project.
