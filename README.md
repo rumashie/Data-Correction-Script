@@ -10,10 +10,7 @@ Assuming you have Git and Python installed, these instructions should work on Wi
      ```
      git clone [URL]
      ```
-     *Note:* Replace `[URL]` with the actual URL of your repository. This URL will vary if the repository is public or private.
-   
-   **Verify the Cloned Directory:**
-   - Confirm that a new folder named `Data-Correction-Script` has been created in your chosen directory.
+   Confirm that a new folder named `Data-Correction-Script` has been created in your chosen directory.
 
 2. **Add the Workbook:**
    - Inside the `Data-Correction-Script` folder, add the workbook containing the data you want to correct. The code expects just one workbook.
