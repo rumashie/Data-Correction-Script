@@ -1,7 +1,22 @@
 ### Data Correction Script
 
-**Instructions to run:**
+Download Git:
+Download on the Git website. Just go to https://git-scm.com/download/win and the download will start automatically.
+Verify Installation with command `git --version`. 
 
+Set-Up Git: https://git-scm.com/book/ms/v2/Getting-Started-First-Time-Git-Setup
+
+
+Download Python:
+Download Python from the official Python website: https://www.python.org/downloads/
+Ensure you check the box that says "Add Python to PATH" before clicking "Install Now"
+
+Verify Installation with command `python --version` in command prompt, returns version of python you have installed. 
+Another useful command if you run into issues is `where python` returns where python is on your computer.
+
+
+
+**Instructions to run:**
 Assuming you have Git and Python installed, these instructions should work on *Windows Command Prompt*.
 
 1. **Clone the Repository:**
