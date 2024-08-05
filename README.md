@@ -15,7 +15,7 @@ Verify Installation with command `python --version` in command prompt, returns v
 Another useful command if you run into issues is `where python` returns where python is on your computer.
 
 
-
+_______________________________________________________________________________________________________________________________________
 **Instructions to run:**
 Assuming you have Git and Python installed, these instructions should work on *Windows Command Prompt*.
 
