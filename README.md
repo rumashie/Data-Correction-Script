@@ -8,7 +8,7 @@ Assuming you have Git and Python installed, these instructions should work on Wi
    - Navigate to the directory where you want to keep the project.
    - Clone this repository to your local machine using the command:
      ```
-     git clone [URL]
+     git clone https://github.com/rumashie/Data-Correction-Script
      ```
    Confirm that a new folder named `Data-Correction-Script` has been created in your chosen directory.
 
