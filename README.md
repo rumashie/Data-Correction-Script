@@ -4,7 +4,7 @@ Download Git:
 Download on the Git website. Just go to https://git-scm.com/download/win and the download will start automatically.
 Verify Installation with command `git --version`. 
 
-Set-Up Git: https://git-scm.com/book/ms/v2/Getting-Started-First-Time-Git-Setup
+More info on how to first Set-Up Git: https://git-scm.com/book/ms/v2/Getting-Started-First-Time-Git-Setup
 
 
 Download Python:
