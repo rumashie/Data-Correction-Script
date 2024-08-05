@@ -1,5 +1,6 @@
 ### Data Correction Script
 
+##### Pre-Reqs
 Download Git:
 Download on the Git website. Just go to https://git-scm.com/download/win and the download will start automatically.
 Verify Installation with command `git --version`. 
