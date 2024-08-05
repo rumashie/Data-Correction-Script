@@ -116,7 +116,10 @@ for name, group in grouped_data:
     new_service_schedule_name = get_schedule_name(group_period, first_row['Service: Service Name'])
     update_data(original_dataFrame, group, first_row_scheduleID,new_service_schedule_name)
 
+# Drop the 'period' column before writing to the new sheet
+corrected_dataFrame = original_dataFrame.drop(columns=['period'])
+
 with pd.ExcelWriter(workbook_path, engine='openpyxl', mode='a') as writer:
-    original_dataFrame.to_excel(writer, sheet_name="Corrected", index=False)    
+    corrected_dataFrame.to_excel(writer, sheet_name="Corrected", index=False)    
     
 print("All Done. Check Workbook for new sheet with corrected data :)")
