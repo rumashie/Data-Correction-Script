@@ -18,7 +18,7 @@ The Attributes (columns) of the original table:
 | Language                                | Language Service was given in                 |
 | Service Method                          | Method of Service                             |
 
-The original data reveals an incorrect hierarchical relationship where sessions of the same Service are associated with unique Service Schedules. Sessions of the same service that occurred in the same Month and Year *should* have the same Service Schedule ID.
+The original data reveals an incorrect hierarchical relationship where sessions of the same Service are associated with unique Service Schedules. Sessions of the same service that occurred within Month and Year *should* have the same Service Schedule ID.
 
 **Example 1:**
 ![example1](example1.png)
@@ -30,7 +30,8 @@ In the corrected data, both sessions now have the same Service Schedule ID, indi
 #### Solution 
 To correct the data:
 1. **Identify Rows:** Identify rows that should have the same schedule ID by *grouping* sessions of the same service occurring in the same month and year.
-2. **Update Data:** Update the schedule ID and schedule name to ensure these rows have the same schedule ID and schedule name. 
+2. **Update Data:** Update the schedule ID and schedule name to ensure these rows have the same schedule ID and schedule name.
+
 #### The Code
 Code Implementation: We implemented the solution using Python including the library *Pandas*, a library that helps manipulate and analyze data. 
 
