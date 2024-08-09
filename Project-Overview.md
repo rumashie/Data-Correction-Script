@@ -21,7 +21,7 @@ The Attributes (columns) of the original table:
 The original data reveals an incorrect hierarchical relationship where sessions of the same Service are associated with unique Service Schedules. Sessions of the same service that occurred in the same Month and Year *should* have the same Service Schedule ID.
 
 **Example 1:**
-[example1.png]
+![example1][example1.png]
 The service `150 - Telephone English Level 2 - Section B` from the `Russian UWW` Program is identified by Service Record ID `a2iUz000000efK3`. This service was provided twice on January 24, 2024, and January 31, 2024. 
 Both sessions should belong to the same Service Schedule since they occurred in the same schedule window of January 2024. However, as shown in the original data, they have unique Service Schedule IDs.
 In the corrected data, both sessions now have the same Service Schedule ID, indicating they are part of the same Service Schedule, January 2024.  
