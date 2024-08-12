@@ -1,5 +1,5 @@
 '''
- Title: pythonScript1.py
+ Title: pythonScript.py
  Author: Massiel Sanchez
  Date: July 2024
  Last Modified: 2 August 2024 by Massiel Sanchez
@@ -12,7 +12,7 @@
  
 * Excel Workbook should be in the same folder of this python file. For more instructions on set-up, visit the project's Github README file. 
  
-This python script was made specifically for this workbook. It interacts directly with the following Columns: 
+This python script was made specifically for Services and Service Schedule Data. It interacts directly with the following Columns: 
  - Service: Record ID
  - First Session Start
  - Service Schedule: Service Schedule Name
