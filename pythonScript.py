@@ -2,7 +2,7 @@
  Title: pythonScript.py
  Author: Massiel Sanchez
  Date: July 2024
- Last Modified: 2 August 2024 by Massiel Sanchez
+ Last Modified: 12 August 2024 by Massiel Sanchez
  
  Purpose: This python script automates data correction by restoring the hierarchical relationship 
  between Service Sessions and Service Schedules in the Salesforce PMM environment, ensuring sessions in the same month 
