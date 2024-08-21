@@ -35,10 +35,6 @@ Assuming you have Git and Python installed, these instructions should work on *W
      python pythonScript.py
      ```
      The Script will update the workbook, creating a new sheet inside the workbook with the corrected data.
-     
-5. **Optional: After running the Script you can now Run the Visualization code**
-     - The visualization code uses the updated workbook, to visualize the data correction.
-     - in order to work, there must be one workbook with two sheets (the original data in one sheet and the corrected data in the other)
 
 #### To Run the Script Again with a New Workbook:
 1. **Delete and Replace Workbook:**
