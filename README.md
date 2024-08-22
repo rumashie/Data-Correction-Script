@@ -44,7 +44,7 @@ Assuming you have Git and Python installed, these instructions should work on *W
    ```
    deactivate
    ```
-
+______________________________________________________________________________________________________________________
 #### To Run the Script Again with a New Workbook:
 1. **Delete and Replace Workbook:**
    - Delete the existing workbook from the project folder.
