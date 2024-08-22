@@ -39,6 +39,11 @@ Assuming you have Git and Python installed, these instructions should work on *W
      python pythonScript.py
      ```
      The Scripts will update the workbook, creating a new sheets inside the workbook with the cleaned-up and corrected data.
+5.  **Deactivate the venv**
+   using the command:
+   ```
+   deactivate
+   ```
 
 #### To Run the Script Again with a New Workbook:
 1. **Delete and Replace Workbook:**
