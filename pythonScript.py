@@ -52,7 +52,7 @@ Data Correction Project Begins:
 book = load_workbook(workbook_path)
 
 # Convert Sheet with Original Data into pandas DataFrame
-original_dataFrame = pd.read_excel(workbook_path, sheet_name=0)
+original_dataFrame = pd.read_excel(workbook_path, sheet_name=1)
 
 '''
 Group original data based on the Month and Year the service occured using the Date in column 'First Session Start'
@@ -61,10 +61,11 @@ using pandas to_period() function
 '''
 
 # Convert Dates into type datetime
-original_dataFrame['First Session Start'] = pd.to_datetime(original_dataFrame['First Session Start'], format='%m/%d/%Y %I:%M %p')
+original_dataFrame['Session Start'] = pd.to_datetime(original_dataFrame['Session Start'])
+original_dataFrame['Session Start'] = original_dataFrame['Session Start'].dt.tz_localize(None)
 
 # Creating new Column named Period to 'extract' the Month and Year from 'First Session Start' of each row
-original_dataFrame['period'] = original_dataFrame['First Session Start'].dt.to_period('M')
+original_dataFrame['period'] = original_dataFrame['Session Start'].dt.to_period('M')
 
 # Adjust Period for Fiscal Year Calendar 
 
@@ -85,12 +86,14 @@ Group Original Data based on 'period' column and Service ID
 iterating through each group, update the needed columns
 '''
 
-grouped_data = original_dataFrame.groupby(['period', 'Service: Record ID'])
+grouped_data = original_dataFrame.groupby(['period', 'Service ID'])
 
 # Helper Function 1: used to perform the Data update, finds row in original DataFrame and updates content
 def update_data(df, group, schedule_id, schedule_name):
-    df.loc[group.index, 'Service Schedule: ID'] = schedule_id
-    df.loc[group.index, 'Service Schedule: Service Schedule Name'] = schedule_name
+    df.loc[group.index, 'Service Schedule ID'] = schedule_id
+    
+    df['Service Schedule Name'] = df['Service Schedule Name'].astype('object')
+    df.loc[group.index, 'Service Schedule Name'] = schedule_name
 
 # Helper Function 2: used to format the updated Schedule Name in "FY [YEAR] [MONTH] [Service Name]"
 def get_schedule_name(period, service_name):
@@ -109,11 +112,11 @@ MAIN CODE:
 4. Call Helper Functions to update the information for remaining rows in the group
 '''    
 for name, group in grouped_data: 
-    first_row_index = group['First Session Start'].idxmin()
+    first_row_index = group['Session Start'].idxmin()
     first_row = group.loc[first_row_index]
-    first_row_scheduleID = first_row['Service Schedule: ID']
+    first_row_scheduleID = first_row['Service Schedule ID']
     group_period = first_row['period']
-    new_service_schedule_name = get_schedule_name(group_period, first_row['Service: Service Name'])
+    new_service_schedule_name = get_schedule_name(group_period, first_row['Service Name'])
     update_data(original_dataFrame, group, first_row_scheduleID,new_service_schedule_name)
 
 # Drop the 'period' column before writing to the new sheet
