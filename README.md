@@ -50,13 +50,14 @@ ________________________________________________________________________________
    - Delete the existing workbook from the project folder.
    - Add the new workbook file to the same location.
 
-2. **Execute the Script:**
+2. **Execute the Scripts:**
    - Activate the virtual environment again with:
      ```
      venv\Scripts\activate
      ```
-   - Run the script using:
+   - Run the scripts using:
      ```
+     python Data_Cleanup.py
      python pythonScript.py
      ```
 ___________________________________________________________________________________________________________________
