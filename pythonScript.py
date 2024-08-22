@@ -17,6 +17,7 @@ This python script was made specifically for Services and Service Schedule Data.
  - First Session Start
  - Service Schedule: Service Schedule Name
  - Service: Service Name
+ - Service Schedule: ID
  '''
 
 # Import Libraries
