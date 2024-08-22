@@ -30,11 +30,15 @@ Assuming you have Git and Python installed, these instructions should work on *W
      ```
 
 4. **Ready to go, you can now run the Code:**
-   - With the virtual environment activated, run the script using:
+   - First run the Clean-Up script, using command:
+     ```
+     python Data_Cleanup.py
+     ```
+   - Once the script executes succesfully, run the data correction script using:
      ```
      python pythonScript.py
      ```
-     The Script will update the workbook, creating a new sheet inside the workbook with the corrected data.
+     The Scripts will update the workbook, creating a new sheets inside the workbook with the cleaned-up and corrected data.
 
 #### To Run the Script Again with a New Workbook:
 1. **Delete and Replace Workbook:**
