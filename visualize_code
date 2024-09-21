@@ -1,0 +1,86 @@
+import pandas as pd
+import plotly.graph_objects as go
+import plotly.io as pio
+import os
+from openpyxl import load_workbook
+
+# Get the directory of the current Jupyter notebook
+folder_path = os.getcwd()  # This gets the current working directory
+
+# List all Excel files in the folder
+files = [f for f in os.listdir(folder_path) if f.endswith('.xlsx')]
+
+# Check if there is exactly one Excel file
+if len(files) != 1:
+    raise FileNotFoundError("There should be exactly one Excel file in the folder.")
+
+# Get the path to the single workbook
+workbook_name = files[0]
+workbook_path = os.path.join(folder_path, workbook_name)
+print(f"Program is using workbook: {workbook_name}")
+print("Program Running...")
+
+# Read from Excel Workbook to create DataFrames
+# Import Workbook: 
+book = load_workbook(workbook_path)
+
+# Check number of sheets inside workbook (should have 2)
+
+# Convert Sheet with Original Data into pandas DataFrame
+original_dataFrame = pd.read_excel(workbook_path, sheet_name=0)
+corrected_dataFrame = pd.read_excel(workbook_path, sheet_name=1)
+
+# Filter Data, select only one Program 
+program_selection = "9/11 Day of Service"
+
+original_dataFrame_filtered = original_dataFrame[original_dataFrame['Service: Program'] == program_selection]
+corrected_dataFrame_filtered = corrected_dataFrame[corrected_dataFrame['Service: Program'] == program_selection]
+
+def create_sankey(df, title, filename):
+    # Calculate group sizes
+    service_groups = df.groupby(['Service: Service Name', 'Service Schedule: ID']).size().reset_index(name='count')
+    
+    # Create labels and indexes
+    service_labels = service_groups['Service: Service Name'].unique().tolist()
+    schedule_labels = service_groups['Service Schedule: ID'].unique().tolist()
+    
+    labels = service_labels + schedule_labels
+    
+    # Create mapping for index
+    service_to_index = {label: i for i, label in enumerate(service_labels)}
+    schedule_to_index = {label: i + len(service_labels) for i, label in enumerate(schedule_labels)}
+    
+    sources = []
+    targets = []
+    values = []
+    
+    for _, row in service_groups.iterrows():
+        source = row['Service: Service Name']
+        target = row['Service Schedule: ID']
+        count = row['count']
+        
+        sources.append(service_to_index[source])
+        targets.append(schedule_to_index[target])
+        values.append(count)
+    
+    # Create the Sankey diagram
+    fig = go.Figure(go.Sankey(
+        node=dict(
+            pad=15,
+            thickness=20,
+            line=dict(color='black', width=0.5),
+            label=labels
+        ),
+        link=dict(
+            source=sources,
+            target=targets,
+            value=values
+        )
+    ))
+
+    fig.update_layout(title_text=title, font_size=10)
+    # Save the figure as an image file
+    fig.write_image(filename)
+    
+create_sankey(original_dataFrame_filtered, 'Sankey Diagram - Original Data for ' + program_selection + '.png', 'sankey_originalData.png')
+create_sankey(corrected_dataFrame_filtered, 'Sankey Diagram - Corrected Data for ' + program_selection + '.png', 'sankey_correctedData.png')
